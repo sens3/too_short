@@ -7,18 +7,22 @@ module TooShort
   class TooShortInvalidOptionError < StandardError; end
   class TooShortMissingOptionError < StandardError; end
   
+  # Options are:
+  # <em>host<em>: The short URL host you wish to use, i.e. http://2sh.de (required)
   def self.options
     @options ||= {}
   end
   
-  def self.register_class(class_name, class_scope)
-    ClassRegistry.instance.register(class_name, class_scope)
-  end
-  
+  # Used to translate the given hash (and scope) into an object
+  # class_scope is optional.
   def self.expand_to_object(class_scope, hash)
     klass = short_url_klass class_scope
     id = hash_to_id hash
     klass.find_by_id(id) if klass and id
+  end
+  
+  def self.register_class(class_name, class_scope)
+    ClassRegistry.instance.register(class_name, class_scope)
   end
   
   private
@@ -33,6 +37,11 @@ module TooShort
     hash.to_i(36)
   end
   
+  # Holds the model classes that use TooShort
+  # It's basically a map storing :scope => :class_name
+  # I.e. 'p' => 'Post'
+  #
+  # Only used internally.
   class ClassRegistry
     include Singleton
     def registry
@@ -51,6 +60,7 @@ module TooShort
       registry[class_scope]
     end
     
+    # only used for specs
     def clear
       @registry = {}
     end
