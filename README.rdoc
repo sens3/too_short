@@ -1,6 +1,73 @@
 = too_short
 
-Description goes here.
+TooShort is a simple URL shortener. And it works without a database table.
+
+It allows you to create short URL's to your resources. Here's how it works:
+
+--- 
+
+<b>Creating short URLs</b>
+
+To create a short URL for a resource
+
+  In your model:
+    class Foo < ActiveRecord::Base
+      has_a_short_url :host => 'http://2shrt.de'
+    end
+
+  @foo.short_url # => http://2shrt.de/2n9c
+  
+To create short URLs for multiple resources:
+
+  In an initializer file (config/initializer/too_short.rb):
+    TooShort.options[:host] = 'http://2shrt.de')
+
+  In your models:
+  
+  class Foo < ActiveRecord::Base
+    has_a_short_url :scope => 'f'
+  end
+  
+  class Bar < ActiveRecord::Base
+    has_as_short_url :scope => 'b'
+  end
+  
+  @foo.short_url # => http://2shrt.de/f/2n9c
+  @bar.short_url # => http://2shrt.de/b/2n9c    
+
+---
+
+<b>Expanding short URLs</b>
+
+  Add a route:
+    (Rails 2)
+    map.connect '/:scope/:hash.:format', :controller => :short_urls, :action => :expand
+  
+    (Rails 3)
+    get '/:scope/:hash.:format' => 'short_urls#expand'
+
+
+  Create a new controller:
+
+    class ShortUrlController < ApplicationController
+      include TooShort::ControllerMethods
+    end
+
+  The default behavior is
+    Valid URL:
+      redirect_to object
+  
+    Invalid URL:
+      respond_to with error message
+  
+    (see TooShort::ControllerMethods for details)  
+  
+ 
+---    
+
+<em>I borrowed from here: http://blog.saush.com/2009/04/13/clone-tinyurl-in-40-lines-of-ruby-code/ </em>
+
+
 
 == Contributing to too_short
  
