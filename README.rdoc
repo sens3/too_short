@@ -40,11 +40,14 @@ In your models:
 
 ==Expanding a short URL
 
-Add a route:
-(Rails 2)
-  map.connect '/:scope/:hash.:format', :controller => :short_urls, :action => :expand
-(Rails 3)
-  get '/:scope/:hash.:format' => 'short_urls#expand'
+Add routes:
+  (Rails 2)
+  map.connect '/:scope/:hash', :controller => :short_urls, :action => :expand # for multiple resources
+  map.connect '/:hash', :controller => :short_urls, :action => :expand # for a single resource
+  
+  (Rails 3)
+  get '/:scope/:hash' => 'short_urls#expand' # for multiple resources
+  get '/:hash' => 'short_urls#expand' # for a single resource
 
 
 Create a new controller:
@@ -58,8 +61,14 @@ The default behavior is
 * Invalid URL -> respond_to with error message
 
   (see TooShort::ControllerMethods for details)  
+
+This can be overwritten by overwriting two methods
+  respond_to_valid_short_url
+  respond_to_invalid_short_url
+
+The object that was looked up for the given short URL is stored in
+  @expanded_object
   
- 
 ---  
 
 ==How the hashing is done:
@@ -70,7 +79,7 @@ The default behavior is
   123456.to_i(36) # => "2n9c"
   "2n9c".to_s(36) # => 123456
 
-<em>I borrowed this from [here](http://blog.saush.com/2009/04/13/clone-tinyurl-in-40-lines-of-ruby-code/)</em>
+<em>I borrowed this from http://blog.saush.com/2009/04/13/clone-tinyurl-in-40-lines-of-ruby-code/
 
 
 == Contributing to too_short
