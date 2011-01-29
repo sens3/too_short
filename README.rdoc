@@ -1,28 +1,29 @@
-= too_short
+==TooShort
 
 TooShort is a simple short URL service for your resources. And it works without an extra database table.
 
-Here's how it works:
+---- 
 
---- 
+==Creating a short URL
 
-<b>Creating short URLs</b>
+<b>To create a short URL for one resource</b>
 
-To create a short URL for a resource
+In your model:
 
-  In your model:
-    class Foo < ActiveRecord::Base
-      has_a_short_url :host => 'http://2sh.de'
-    end
+  class Foo < ActiveRecord::Base
+    has_a_short_url :host => 'http://2sh.de'
+  end
 
   @foo.short_url # => http://2sh.de/2n9c
-  
-To create short URLs for multiple resources:
 
-  In an initializer file (config/initializer/too_short.rb):
-    TooShort.options[:host] = 'http://2sh.de'
+---
 
-  In your models:
+<b>To create short URLs for multiple resources:</b>
+
+In an initializer file (config/initializer/too_short.rb):
+  TooShort.options[:host] = 'http://2sh.de'
+
+In your models:
   
   class Foo < ActiveRecord::Base
     has_a_short_url :scope => 'f'
@@ -32,41 +33,44 @@ To create short URLs for multiple resources:
     has_as_short_url :scope => 'b'
   end
   
-  @foo.short_url # => http://2sh.de/f/2n9c
-  @bar.short_url # => http://2sh.de/b/2n9c    
-
+  @foo.short_url # => http://2sh.de/*f*/2n9c
+  @bar.short_url # => http://2sh.de/*b*/2n9c    
+  
 ---
 
-<b>Expanding short URLs</b>
+==Expanding a short URL
 
-  Add a route:
-    (Rails 2)
-    map.connect '/:scope/:hash.:format', :controller => :short_urls, :action => :expand
-  
-    (Rails 3)
-    get '/:scope/:hash.:format' => 'short_urls#expand'
+Add a route:
+(Rails 2)
+  map.connect '/:scope/:hash.:format', :controller => :short_urls, :action => :expand
+(Rails 3)
+  get '/:scope/:hash.:format' => 'short_urls#expand'
 
 
-  Create a new controller:
+Create a new controller:
 
-    class ShortUrlController < ApplicationController
-      include TooShort::ControllerMethods
-    end
+  class ShortUrlController < ApplicationController
+    include TooShort::ControllerMethods
+  end
 
-  The default behavior is
-    Valid URL:
-      redirect_to object
-  
-    Invalid URL:
-      respond_to with error message
-  
-    (see TooShort::ControllerMethods for details)  
+The default behavior is
+* Valid URL -> redirect_to object
+* Invalid URL -> respond_to with error message
+
+  (see TooShort::ControllerMethods for details)  
   
  
----    
+---  
 
-<em>I borrowed from here: http://blog.saush.com/2009/04/13/clone-tinyurl-in-40-lines-of-ruby-code/ </em>
+==How the hashing is done:
 
+  @post = Post.create
+  @post.id        # => 123456
+  post.short_url  # => http://2sh.de/*2n9c*
+  123456.to_i(36) # => "2n9c"
+  "2n9c".to_s(36) # => 123456
+
+<em>I borrowed this from [here](http://blog.saush.com/2009/04/13/clone-tinyurl-in-40-lines-of-ruby-code/)</em>
 
 
 == Contributing to too_short
