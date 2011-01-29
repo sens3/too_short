@@ -1,8 +1,8 @@
 = too_short
 
-TooShort is a simple URL shortener. And it works without a database table.
+TooShort is a simple short URL service for your resources. And it works without an extra database table.
 
-It allows you to create short URL's to your resources. Here's how it works:
+Here's how it works:
 
 --- 
 
@@ -12,15 +12,15 @@ To create a short URL for a resource
 
   In your model:
     class Foo < ActiveRecord::Base
-      has_a_short_url :host => 'http://2shrt.de'
+      has_a_short_url :host => 'http://2sh.de'
     end
 
-  @foo.short_url # => http://2shrt.de/2n9c
+  @foo.short_url # => http://2sh.de/2n9c
   
 To create short URLs for multiple resources:
 
   In an initializer file (config/initializer/too_short.rb):
-    TooShort.options[:host] = 'http://2shrt.de')
+    TooShort.options[:host] = 'http://2sh.de'
 
   In your models:
   
@@ -32,8 +32,8 @@ To create short URLs for multiple resources:
     has_as_short_url :scope => 'b'
   end
   
-  @foo.short_url # => http://2shrt.de/f/2n9c
-  @bar.short_url # => http://2shrt.de/b/2n9c    
+  @foo.short_url # => http://2sh.de/f/2n9c
+  @bar.short_url # => http://2sh.de/b/2n9c    
 
 ---
 
