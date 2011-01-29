@@ -14,7 +14,7 @@ describe "TooShort ControllerMethods" do
     before do
       @controller.stub!(:respond_to_valid_short_url)
       @controller.stub!(:respond_to_invalid_short_url)
-      @params = {:scope => 'f', :hash => '2n9c', :format => 'xml'}
+      @params = {'scope' => 'f', 'hash' => '2n9c', 'format' => 'xml'}
       @controller.stub!(:params).and_return(@params)
     end
     after do

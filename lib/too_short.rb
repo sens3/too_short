@@ -16,6 +16,7 @@ module TooShort
   end
   
   def self.expand_to_object(params={})
+    params.symbolize_keys!
     klass = short_url_klass(params[:scope])
     id = hash_to_id(params[:hash])
     klass.find_by_id(id) if klass and id
