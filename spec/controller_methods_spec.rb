@@ -14,14 +14,14 @@ describe "TooShort ControllerMethods" do
     before do
       @controller.stub!(:respond_to_valid_short_url)
       @controller.stub!(:respond_to_invalid_short_url)
-      @params = {'scope' => 'f', 'hash' => '2n9c', 'format' => 'xml'}
+      @params = {:scope => 'f', :hash => '2n9c'}
       @controller.stub!(:params).and_return(@params)
     end
     after do
       @controller.expand
     end
     it "should get the object for the short url" do
-      TooShort.should_receive(:expand_to_object).with(@params)
+      TooShort.should_receive(:expand_to_object).with('f', '2n9c')
     end
     it "should respond to a valid short url" do
       TooShort.stub!(:expand_to_object).and_return(mock('expanded object'))

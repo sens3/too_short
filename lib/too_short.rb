@@ -15,10 +15,9 @@ module TooShort
     ClassRegistry.instance.register(class_name, class_scope)
   end
   
-  def self.expand_to_object(params={})
-    params.symbolize_keys!
-    klass = short_url_klass(params[:scope])
-    id = hash_to_id(params[:hash])
+  def self.expand_to_object(class_scope, hash)
+    klass = short_url_klass class_scope
+    id = hash_to_id hash
     klass.find_by_id(id) if klass and id
   end
   

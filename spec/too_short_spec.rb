@@ -11,7 +11,7 @@ describe "TooShort" do
         has_a_short_url
       end
       Foo.stub!(:find_by_id).with(123456).and_return(@foo)
-      TooShort.expand_to_object(:hash => '2n9c').should == @foo
+      TooShort.expand_to_object(nil, '2n9c').should == @foo
     end
   end
 end

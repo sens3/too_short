@@ -2,7 +2,7 @@ module TooShort
   module ControllerMethods
 
     def expand
-      if @expanded_object = TooShort.expand_to_object(params)
+      if @expanded_object = TooShort.expand_to_object(params[:scope], params[:hash])
         respond_to_valid_short_url
       else
         respond_to_invalid_short_url
