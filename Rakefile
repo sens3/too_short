@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "too_short"
   gem.homepage = "http://github.com/sens3/too_short"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A simple short URL service for your resources}
+  gem.description = %Q{A simple short URL service for your resources, no extra database table necessary}
   gem.email = "makesens3@gmail.com"
   gem.authors = ["Simon Baumgartner"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,

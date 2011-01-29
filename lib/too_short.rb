@@ -40,8 +40,9 @@ module TooShort
     end
     
     def register(class_name, class_scope)
-      if registry[class_scope]
-        raise TooShortInvalidOptionError.new("Duplicate usage of scope '#{class_scope.to_s}', used in classes #{registry[class_scope]} and #{class_name}")
+      registered_class_name = registry[class_scope]
+      if registered_class_name && registered_class_name != class_name
+        raise TooShortInvalidOptionError.new("Duplicate usage of scope '#{class_scope.to_s}', used in classes #{registered_class_name} and #{class_name}")
       end
       registry[class_scope] = class_name
     end
