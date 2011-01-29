@@ -7,6 +7,8 @@ module TooShort
   class TooShortInvalidOptionError < StandardError; end
   class TooShortMissingOptionError < StandardError; end
   
+  BASE = 36
+  
   # Options are:
   # <em>host<em>: The short URL host you wish to use, i.e. http://2sh.de (required)
   def self.options
@@ -34,7 +36,11 @@ module TooShort
   end
   
   def self.hash_to_id(hash)
-    hash.to_i(36)
+    hash.to_i(BASE)
+  end
+  
+  def self.id_to_hash(id)
+    id.to_s(BASE)
   end
   
   # Holds the model classes that use TooShort

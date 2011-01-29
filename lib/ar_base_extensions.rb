@@ -17,7 +17,8 @@ module TooShort
   module InstanceMethods
     def short_url
       validate_and_cleanup_short_url_options(short_url_options)
-      [short_url_host, short_url_scope, id_to_hash(self.id)].compact.join('/')
+      hash = TooShort.id_to_hash(self.id)
+      [short_url_host, short_url_scope, hash].compact.join('/')
     end
     
     private
@@ -50,8 +51,5 @@ module TooShort
       self.class.read_inheritable_attribute :short_url_options
     end
     
-    def id_to_hash(id)
-      id.to_s(36)
-    end
   end
 end
