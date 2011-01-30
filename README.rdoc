@@ -1,6 +1,6 @@
 ==TooShort
 
-TooShort is a simple short URL service for your resources. And it works without an extra database table.
+TooShort allows you to create persistent short URLs for your resources. And it works without any additional storage.
 
 ---- 
 
