@@ -30,7 +30,8 @@ Gem::Specification.new do |s|
     "spec/ar_base_extensions_spec.rb",
     "spec/controller_methods_spec.rb",
     "spec/spec_helper.rb",
-    "spec/too_short_spec.rb"
+    "spec/too_short_spec.rb",
+    "too_short.gemspec"
   ]
   s.homepage = %q{http://github.com/sens3/too_short}
   s.licenses = ["MIT"]
