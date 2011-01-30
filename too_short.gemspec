@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Simon Baumgartner"]
   s.date = %q{2011-01-30}
-  s.description = %q{A simple short URL service for your resources, no extra database table necessary}
+  s.description = %q{TooShort allows you to create persistent short URLs for your resources, without any additional storage.}
   s.email = %q{makesens3@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{A simple short URL service for your resources}
+  s.summary = %q{A short URL service for your resources}
   s.test_files = [
     "spec/ar_base_extensions_spec.rb",
     "spec/controller_methods_spec.rb",
