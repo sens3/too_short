@@ -41,11 +41,6 @@ In your models:
 ==Expanding a short URL
 
 Add routes:
-  (Rails 2)
-  map.connect '/:scope/:hash', :controller => :short_urls, :action => :expand # for multiple resources
-  map.connect '/:hash', :controller => :short_urls, :action => :expand # for a single resource
-  
-  (Rails 3)
   get '/:scope/:hash' => 'short_urls#expand' # for multiple resources
   get '/:hash' => 'short_urls#expand' # for a single resource
 
@@ -75,12 +70,13 @@ The object that was looked up for the given short URL is stored in
 
   @post = Post.create
   @post.id        # => 123456
-  post.short_url  # => http://2sh.de/*2n9c*
+  post.short_url  # => http://2sh.de/2n9c
   123456.to_i(36) # => "2n9c"
   "2n9c".to_s(36) # => 123456
 
-<em>I borrowed this from http://blog.saush.com/2009/04/13/clone-tinyurl-in-40-lines-of-ruby-code/
+<em>I borrowed this from http://blog.saush.com/2009/04/13/clone-tinyurl-in-40-lines-of-ruby-code/</em>
 
+I go into more detail on the inner workings of TooShort here: http://sens3.com/posts/tooshort-rubygem
 
 == Contributing to too_short
  
