@@ -15,7 +15,7 @@ Jeweler::Tasks.new do |gem|
   gem.name = "too_short"
   gem.homepage = "http://github.com/sens3/too_short"
   gem.license = "MIT"
-  gem.summary = %Q{A short URL service for your resources}
+  gem.summary = %Q{A URL shortener for your resources}
   gem.description = %Q{TooShort allows you to create persistent short URLs for your resources, without any additional storage.}
   gem.email = "makesens3@gmail.com"
   gem.authors = ["Simon Baumgartner"]

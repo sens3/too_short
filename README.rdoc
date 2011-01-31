@@ -33,8 +33,8 @@ In your models:
     has_as_short_url :scope => 'b'
   end
   
-  @foo.short_url # => http://2sh.de/*f*/2n9c
-  @bar.short_url # => http://2sh.de/*b*/2n9c    
+  @foo.short_url # => http://2sh.de/f/2n9c
+  @bar.short_url # => http://2sh.de/b/2n9c    
   
 ---
 
@@ -62,7 +62,7 @@ This can be overwritten by overwriting two methods
   respond_to_invalid_short_url
 
 The object that was looked up for the given short URL is stored in
-  @expanded_object
+  @object_from_short_url
   
 ---  
 

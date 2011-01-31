@@ -1,6 +1,16 @@
 module TooShort
   module ARBaseExtensions
     
+    
+    # To be included in your model, i.e
+    # class Post
+    #   has_a_short_url
+    # end
+    #
+    # Takes the following options:
+    #   host: short URL host to use (alternatively to be defined in an initializer file)
+    #   scope: the scope for this model, necessary when short URLs are used in multiple models
+    #
     def has_a_short_url(options={})
       short_url_options = TooShort.options.merge(options)
       short_url_options.symbolize_keys!

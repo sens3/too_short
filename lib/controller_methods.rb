@@ -1,16 +1,27 @@
 module TooShort
+  
+  # To be included in the controller that should handle short URLs, i.e
+  # class ShortUrlsController < ApplicationController
+  #   include TooShort::ControllerMethods
+  # end
+  #
+  # response handling can be customized by overwriting these methods
+  # respond_to_valid_short_url
+  # respond_to_invalid_short_url
+  #
+  # the object that was looked up can be accessed via @object_from_short_url
   module ControllerMethods
     def expand
       require_all_model_classes
-      if @expanded_object = TooShort.expand_to_object(params[:scope], params[:hash])
+      if @object_from_short_url = TooShort.expand_to_object(params[:scope], params[:hash])
         respond_to_valid_short_url
       else
         respond_to_invalid_short_url
       end    
     end
-  
+    
     def respond_to_valid_short_url
-      redirect_to @expanded_object
+      redirect_to @object_from_short_url
     end
   
     def respond_to_invalid_short_url
