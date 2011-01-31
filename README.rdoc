@@ -30,7 +30,7 @@ In your models:
   end
   
   class Bar < ActiveRecord::Base
-    has_as_short_url :scope => 'b'
+    has_a_short_url :scope => 'b'
   end
   
   @foo.short_url # => http://2sh.de/f/2n9c
