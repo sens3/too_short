@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{too_short}
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Simon Baumgartner"]
-  s.date = %q{2011-01-31}
+  s.date = %q{2011-02-02}
   s.description = %q{TooShort allows you to create persistent short URLs for your resources, without any additional storage.}
   s.email = %q{makesens3@gmail.com}
   s.extra_rdoc_files = [
