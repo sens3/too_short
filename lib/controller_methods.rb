@@ -38,10 +38,9 @@ module TooShort
     def require_all_model_classes
       # Rails only loads classes when they are used
       # To populate our registry we require each file in app/models
-      Dir.glob(RAILS_ROOT + '/app/models/*.rb').each do |file| 
-        model_name = file.sub(/.rb$/, '') 
-        model_name.classify.constantize
-      end if defined?(RAILS_ROOT)
+      Dir.entries(Rails.root.to_s + '/app/models/').select{|f| f =~ /^\w/}.each do |f| 
+        f.sub('.rb', '').classify.constantize
+      end if defined?(Rails)
     end
     
   end
