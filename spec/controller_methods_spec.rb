@@ -2,6 +2,12 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 require 'action_controller'
 
+class Rails
+  def self.root
+    File.expand_path(File.dirname(__FILE__) + '/test_directories')
+  end
+end
+
 class ShortUrlController < ActionController::Base
   include TooShort::ControllerMethods
 end

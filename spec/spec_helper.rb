@@ -2,6 +2,8 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rspec'
 require 'too_short'
+require 'spec/test_directories/app/models/post'
+require 'spec/test_directories/app/models/post_comment'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.

@@ -1,0 +1,2 @@
+class PostComment
+end
