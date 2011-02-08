@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{too_short}
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Simon Baumgartner"]
-  s.date = %q{2011-02-02}
+  s.date = %q{2011-02-08}
   s.description = %q{TooShort allows you to create persistent short URLs for your resources, without any additional storage.}
   s.email = %q{makesens3@gmail.com}
   s.extra_rdoc_files = [
@@ -30,6 +30,8 @@ Gem::Specification.new do |s|
     "spec/ar_base_extensions_spec.rb",
     "spec/controller_methods_spec.rb",
     "spec/spec_helper.rb",
+    "spec/test_directories/app/models/post.rb",
+    "spec/test_directories/app/models/post_comment.rb",
     "spec/too_short_spec.rb",
     "too_short.gemspec"
   ]
@@ -42,6 +44,8 @@ Gem::Specification.new do |s|
     "spec/ar_base_extensions_spec.rb",
     "spec/controller_methods_spec.rb",
     "spec/spec_helper.rb",
+    "spec/test_directories/app/models/post.rb",
+    "spec/test_directories/app/models/post_comment.rb",
     "spec/too_short_spec.rb"
   ]
 
