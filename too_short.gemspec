@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{too_short}
-  s.version = "0.1.4"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Simon Baumgartner"]
-  s.date = %q{2011-02-08}
+  s.date = %q{2011-05-13}
   s.description = %q{TooShort allows you to create persistent short URLs for your resources, without any additional storage.}
   s.email = %q{makesens3@gmail.com}
   s.extra_rdoc_files = [
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "spec/ar_base_extensions_spec.rb",
     "spec/controller_methods_spec.rb",
     "spec/spec_helper.rb",
+    "spec/test_directories/app/models/crazy_rubinius_file.rbc",
     "spec/test_directories/app/models/post.rb",
     "spec/test_directories/app/models/post_comment.rb",
     "spec/too_short_spec.rb",
@@ -38,7 +39,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/sens3/too_short}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.rubygems_version = %q{1.6.2}
   s.summary = %q{A URL shortener for your resources}
   s.test_files = [
     "spec/ar_base_extensions_spec.rb",
@@ -50,7 +51,6 @@ Gem::Specification.new do |s|
   ]
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
