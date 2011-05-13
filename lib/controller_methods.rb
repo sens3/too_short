@@ -40,7 +40,7 @@ module TooShort
       # To populate our registry we require each file in app/models
       files = Dir.glob(Rails.root.to_s + '/app/models/**/*.rb').map { |path| File.basename(path) }
       files.select{|f| f =~ /^\w/}.each do |f|
-        f.sub('.rb', '').classify.constantize
+        f.sub('.rb', '').camelize.constantize
       end if defined?(Rails)
     end
 
