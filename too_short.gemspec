@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{too_short}
-  s.version = "0.1.5"
+  s.name = "too_short"
+  s.version = "0.1.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Simon Baumgartner"]
-  s.date = %q{2011-05-13}
-  s.description = %q{TooShort allows you to create persistent short URLs for your resources, without any additional storage.}
-  s.email = %q{makesens3@gmail.com}
+  s.date = "2013-01-11"
+  s.description = "TooShort allows you to create persistent short URLs for your resources, without any additional storage."
+  s.email = "makesens3@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -36,11 +36,11 @@ Gem::Specification.new do |s|
     "spec/too_short_spec.rb",
     "too_short.gemspec"
   ]
-  s.homepage = %q{http://github.com/sens3/too_short}
+  s.homepage = "http://github.com/sens3/too_short"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
-  s.summary = %q{A URL shortener for your resources}
+  s.rubygems_version = "1.8.24"
+  s.summary = "A URL shortener for your resources"
   s.test_files = [
     "spec/ar_base_extensions_spec.rb",
     "spec/controller_methods_spec.rb",
