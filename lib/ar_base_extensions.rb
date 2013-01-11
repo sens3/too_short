@@ -14,7 +14,8 @@ module TooShort
     def has_a_short_url(options={})
       short_url_options = TooShort.options.merge(options)
       short_url_options.symbolize_keys!
-      write_inheritable_attribute(:short_url_options, short_url_options)
+      class_attribute :short_url_options
+      self.short_url_options = short_url_options
       
       TooShort.register_class(self.to_s, short_url_options[:scope])
       
